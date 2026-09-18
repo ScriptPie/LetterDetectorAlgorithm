@@ -1,5 +1,4 @@
 from PIL import Image, ImageDraw
-import math
 
 def most_top_point_left(image):
     imgWidth, imgHeight = image.size
@@ -42,11 +41,14 @@ def most_bottom_point_right(image):
     return (posX, posY)
 
 letter_image = Image.open("darkness_letter/Letter1.png").convert("RGB")
-letter_image2 = Image.open("darkness_letter/Letter1.png").convert("RGB")
+
+most_top_left = -1
+most_top_right = -1
+most_bottom_left = -1
+most_bottom_right = -1
 
 if __name__ == "__main__":
-    letter_image2.putpixel(most_top_point_left(letter_image), (255, 0, 0))
-    letter_image2.putpixel(most_top_point_right(letter_image), (255, 0, 0))
-    letter_image2.putpixel(most_bottom_point_left(letter_image), (255, 0, 0))
-    letter_image2.putpixel(most_bottom_point_right(letter_image), (255, 0, 0))
-    letter_image2.save("darkness_letter/Letter2.png")
+    most_top_left = most_top_point_left(letter_image)
+    most_top_right = most_top_point_right(letter_image)
+    most_bottom_left = most_bottom_point_left(letter_image)
+    most_bottom_right = most_bottom_point_right(letter_image)
